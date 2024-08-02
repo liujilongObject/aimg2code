@@ -11,7 +11,8 @@ export default [
     },
     {
         rules: {
-            'no-unused-vars': 'off'
+            'no-unused-vars': 'off',
+            'n/hashbang': 'off'
         }
     }
 ]

@@ -1,7 +1,8 @@
+#!/usr/bin/env node
 
 import minimist from 'minimist'
-import { readConfigJSON } from './readFile.js'
-import { img2Code } from './img2code.js'
+import { readConfigJSON } from './src/readFile.js'
+import { img2Code } from './src/img2code.js'
 
 (async function main() {
   const argvs = minimist(process.argv.slice(2))
