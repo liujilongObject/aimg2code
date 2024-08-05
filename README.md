@@ -14,7 +14,7 @@
 ```bash
 npm i aimg2code
 ```
-- 你也可以使用 [npx](https://docs.npmjs.com/cli/v8/commands/npx) 来临时使用 `aimg2code`, 避免将包npm下载到本地。
+- 你也可以使用 [npx](https://docs.npmjs.com/cli/v8/commands/npx) 来使用 `aimg2code`, 避免将npm包下载到本地。
 ```bash
 npx aimg2code
 ```
@@ -28,7 +28,7 @@ npx aimg2code
     "aimg2code": "aimg2code -i ./image.png"
   }
   ```
-- 或者直接在命令行中执行脚本
+- 或者直接在命令行中执行脚本，你也不需要在当前工作目录中新建 `package.json`，目录中仅包含配置文件即可。
   ```bash
   npx aimg2code -i ./image.png
   ```
