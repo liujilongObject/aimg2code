@@ -16,7 +16,7 @@ export const resolve = filePath => {
 
 const readLocalImgToBase64 = async (path) => {
   const imageData = await fs.readFile(resolve(path))
-  return `data:image/jpeg;base64,${imageData.toString("base64")}`
+  return `data:image/png;base64,${imageData.toString('base64')}`
 }
 
 const readRemoteImgToBase64 = async (url) => {
@@ -28,7 +28,7 @@ const readRemoteImgToBase64 = async (url) => {
         chunks.push(chunk)
       })
       res.on('end', () => {
-        const imageData = `data:image/jpeg;base64,${chunks.join('').toString("base64")}`
+        const imageData = `data:image/png;base64,${chunks.join('').toString('base64')}`
         resolve(imageData)
       })
     })
