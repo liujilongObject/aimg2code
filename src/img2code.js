@@ -59,10 +59,6 @@ export const img2Code = async (options = {}, imagePathList = []) => {
 
     spinner.succeed('The model successfully returns content')
 
-    const thinkingText = res.substring(res.indexOf('<thinking>') + '<thinking>'.length, res.indexOf('</thinking>'))
-
-    console.log('-----------模型分析过程\n', thinkingText, '\n-----------')
-
     const htmlString = res.substring(res.indexOf('<!DOCTYPE html>'), res.lastIndexOf('</html>') + '</html>'.length)
 
     spinner.start('Start generating the file')

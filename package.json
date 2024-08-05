@@ -11,7 +11,7 @@
   "bin": "./dist/index.js",
   "author": "liujilong <liu4426350@qq.com>",
   "license": "MIT",
-  "description": "A lightweight tool for generating code from images, powered by AI",
+  "description": "A simple and easy-to-use tool to generate code from images, powered by AI",
   "keywords": [
     "AI",
     "LLMs",

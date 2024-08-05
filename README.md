@@ -1,0 +1,63 @@
+## 介绍
+
+- aimg2code 是一款简单易用的图片生成代码的工具，利用了多模态大模型识别文本和图像的能力。
+- 可以自定义模型，但需要注意你使用的模型需要支持以下能力:
+  - 兼容OpenAI接口
+  - 支持图像识别
+- 目前仅支持图片生成纯的HTML文档。
+
+## 安装
+
+> 环境要求：node>=18
+
+- 你可以下载npm包到你的项目中。
+```bash
+npm i aimg2code
+```
+- 你也可以使用 [npx](https://docs.npmjs.com/cli/v8/commands/npx) 来临时使用 `aimg2code`, 避免将包npm下载到本地。
+```bash
+npx aimg2code
+```
+
+## 使用
+
+#### 在安装 `aimg2code` 后，你可以在脚本或者命令中使用。
+- 在 `package.json` 的 `scripts` 中新增指令
+  ```json
+  "scripts": {
+    "aimg2code": "aimg2code -i ./image.png"
+  }
+  ```
+- 或者直接在命令行中执行脚本
+  ```bash
+  npx aimg2code -i ./image.png
+  ```
+
+**命令行参数介绍：**
+- `-i` : 需要转换的图片，值为图片路径或者URL的字符串。支持解析本地图片和远程图片(http/https)；支持传入多张图片,以`,`分隔，例如 "./img1.png,./img2.png"。
+
+
+**配置文件介绍：**
+> *在使用 `aimg2code` 的当前工作目录中必须存在 `aimg2code.config.json`* ，`aimg2code` 会读取配置文件完成任务。
+
+**`aimg2code.config.json`** 有以下字段：
+
+| Name          | Optional | Description                                                                                   | Support CLI parameters  |
+| :------------ | :------- | :----------------------------------------------------                                         | :---       |
+| openaiApiKey  | ❌      | 你使用的模型的API-KEY                                                                           | -          |
+| openaiModel   | ✅      | 你使用的模型的模型名，例如 `gpt-4o`。默认值：`gpt-4o`                                             | -          |
+| openaiBaseUrl | ✅      | 你使用的模型的网络访问地址，例如 `https://api.openai.com/v1`, 默认值：`https://api.openai.com/v1`  | -          |
+| images        | ✅      | 需要转换成代码的图片路径或URL的字符串数组，支持传入多张图片, 例如 `['img1.png', 'img2.png']`         | -i, 若命令行脚本中有此参数，则忽略该项配置  |
+
+**配置文件示例：**
+
+这是一个涵盖了全部配置的 `aimg2code.config.json` 文件，模型使用 [通义千问](https://help.aliyun.com/zh/dashscope/developer-reference/compatibility-of-openai-with-dashscope?spm=a2c4g.11186623.0.0.5c5e5b789qrYDP) 系列的 `qwen-vl-max`：
+```json
+// aimg2code.config.json
+{
+  "openaiApiKey": "你申请的API-KEY",
+  "openaiModel": "qwen-vl-max",
+  "openaiBaseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+  "images": ["./image.png"]
+}
+```

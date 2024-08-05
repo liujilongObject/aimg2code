@@ -59,7 +59,7 @@ export const readConfigJSON = async () => {
     )
     return json
   } catch (error) {
-    console.log('【configuration file missed】: The aimg2code.config.json configuration file is missing')
+    console.error('【configuration file missed】: The aimg2code.config.json configuration file is missing')
     throw error
   }
 }
