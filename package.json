@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint . --fix",
     "build": "rollup -c",
-    "prepublish": "npm run lint && npm run build"
+    "prepublishOnly": "npm run lint && npm run build"
   },
   "bin": "./dist/index.js",
   "author": "liujilong <liu4426350@qq.com>",
