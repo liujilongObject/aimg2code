@@ -59,12 +59,13 @@ export const img2Code = async (options = {}, imagePathList = []) => {
 
     spinner.succeed('The model successfully returns content')
 
-    const htmlString = res.substring(res.indexOf('<!DOCTYPE html>'), res.lastIndexOf('</html>') + '</html>'.length)
+    const htmlString = res.substring(res.indexOf('<html lang="en">'), res.lastIndexOf('</html>') + '</html>'.length)
+    const finalHtmlString = `<!DOCTYPE html>\n${htmlString.replace('<!DOCTYPE html>', '')}`
 
     spinner.start('Start generating the file')
 
     const outHtmlFilePath = resolve(`./output_${new Date(Date.now()).toLocaleString().replace(/\/|:/g, '-').split(' ').join('_')}.html`)
-    await fs.writeFile(outHtmlFilePath, htmlString, 'utf-8')
+    await fs.writeFile(outHtmlFilePath, finalHtmlString, 'utf-8')
 
     spinner.succeed('Succeeded, Greate!')
   } catch (error) {
