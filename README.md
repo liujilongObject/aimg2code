@@ -81,7 +81,7 @@ npx aimg2code
 
 **输出文件：**
 
-![](./image.png)
+![](./assets/select-stack.png)
 
 选择你要生成代码的技术栈，`aimg2code` 调用成功后，会在当前工作目录输出转换后的html文件，文件名格式为：output_当前时间.html
 
