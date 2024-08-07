@@ -21,6 +21,7 @@ export default defineConfig([
       'langchain',
       'minimist',
       'ora',
+      '@inquirer/select',
       'node:fs/promises',
       'node:path',
       'node:https'

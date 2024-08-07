@@ -3,6 +3,7 @@
 import minimist from 'minimist'
 import { readConfigJSON } from './src/readFile.js'
 import { img2Code } from './src/img2code.js'
+import { selectOutputStack } from './src/prompts.js'
 
 (async function main() {
   const argvs = minimist(process.argv.slice(2))
@@ -11,10 +12,18 @@ import { img2Code } from './src/img2code.js'
   const config = await readConfigJSON()
   const configImages = config?.images ? [].concat(config.images) : []
 
+  if (!config.openaiApiKey) {
+    console.error('【openaiApiKey missed】: Please configure your API-KEY!')
+    return
+  }
+
   if (!inputImgs.length && !configImages.length) {
     console.error('【image missed】: Please enter the image path or URL to be converted!')
     return
   }
+
+  const prompt = await selectOutputStack()
+
   const images = inputImgs.length ? inputImgs : configImages
-  img2Code(config, images)
+  img2Code(config, images, prompt)
 })()

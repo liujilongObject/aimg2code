@@ -3,12 +3,11 @@ import { HumanMessage } from "@langchain/core/messages"
 import { StringOutputParser } from '@langchain/core/output_parsers'
 import * as fs from "node:fs/promises"
 import { resolve, readImageFileToBase64 } from './readFile.js'
-import { PURE_HTML_PROMPT as prompt } from './prompts.js'
 import ora from 'ora'
 
 const spinner = ora()
 
-export const img2Code = async (options = {}, imagePathList = []) => {
+export const img2Code = async (options = {}, imagePathList = [], prompt = '') => {
   try {
     const imageFiles = []
     for (const imgPath of imagePathList) {
