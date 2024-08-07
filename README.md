@@ -52,14 +52,14 @@ npx aimg2code
 
 | Name          | Optional | Description                                                                                   | Support CLI parameters  |
 | :------------ | :------- | :----------------------------------------------------                                         | :---       |
-| openaiApiKey  | ❌      | 你使用的模型的API-KEY                                                                           | -          |
+| openaiApiKey  | ❌      | 你使用的模型的API-KEY，必须                                                                      | -          |
 | openaiModel   | ✅      | 你使用的模型的模型名，例如 `gpt-4o`。默认值：`gpt-4o`                                             | -          |
-| openaiBaseUrl | ✅      | 你使用的模型的网络访问地址，例如 `https://api.openai.com/v1`, 默认值：`https://api.openai.com/v1`  | -          |
+| openaiBaseUrl | ✅      | 你使用的模型的网络访问地址，例如 `https://api.openai.com/v1`。 默认值：`https://api.openai.com/v1`  | -          |
 | images        | ✅      | 需要转换成代码的图片相对路径或URL的字符串数组，支持传入多张图片, 例如 `['img1.png', 'img2.png']`         | -i, 若命令行脚本中有此参数，则忽略该项配置  |
 
 **配置文件示例：**
 
-这是一个涵盖了全部配置的 `aimg2code.config.json` 文件，模型使用 [通义千问](https://help.aliyun.com/zh/dashscope/developer-reference/compatibility-of-openai-with-dashscope?spm=a2c4g.11186623.0.0.5c5e5b789qrYDP) 系列的 `qwen-vl-max`：
+- 这是一个涵盖了全部配置的 `aimg2code.config.json` 文件，模型使用 [通义千问](https://help.aliyun.com/zh/dashscope/developer-reference/compatibility-of-openai-with-dashscope?spm=a2c4g.11186623.0.0.5c5e5b789qrYDP) 系列的 `qwen-vl-max`：
 ```json
 // aimg2code.config.json
 {
@@ -67,6 +67,13 @@ npx aimg2code
   "openaiModel": "qwen-vl-max",
   "openaiBaseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
   "images": ["./image.png"]
+}
+```
+- 最小配置，使用默认模型`gpt-4o`
+```json
+// aimg2code.config.json
+{
+  "openaiApiKey": "你申请的GPT的API-KEY"
 }
 ```
 
