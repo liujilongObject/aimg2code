@@ -89,4 +89,3 @@ Select the technology stack you want to generate code. After `aimg2code` is succ
 - For the same or the same group of images, you can call `aimg2code` multiple times to select the best or most appropriate result.
 - When multiple images are passed in, the first image is recommended to contain the overall content structure, and the second or multiple images are recommended to be more detailed supplements to the first image, such as partial close-ups.
 - When the generated code is inaccurate for images with a lot of content, the images can be cut according to the content structure and passed in, and only a certain piece of content can be converted each time, which can improve the accuracy.
-- If you only need the accuracy of the generated code, you can set a lower `temperature` value, for example `--temperature=0.1`.
