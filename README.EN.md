@@ -74,7 +74,7 @@ aimg2code -i https:/xx.png
 ```json
 // aimg2code.config.json
 {
-"openaiApiKey": "The API-KEY of GPT you applied for"
+"openaiApiKey": "API-KEY you applied for"
 }
 ```
 
