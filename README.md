@@ -81,7 +81,7 @@ npx aimg2code
 ```json
 // aimg2code.config.json
 {
-  "openaiApiKey": "你申请的GPT的API-KEY"
+  "openaiApiKey": "你申请的API-KEY"
 }
 ```
 
