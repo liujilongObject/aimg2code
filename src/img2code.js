@@ -16,12 +16,12 @@ export const img2Code = async (options = {}, imagePathList = [], prompt = '') =>
       )
     }
 
-    const { openaiApiKey, openaiModel, openaiBaseUrl } = options
+    const { openaiApiKey, openaiModel, openaiBaseUrl, temperature = 0.95 } = options
     const model = new ChatOpenAI({
       configuration: {
         baseURL: openaiBaseUrl || 'https://api.openai.com/v1'
       },
-      temperature: 0.95,
+      temperature,
       apiKey: openaiApiKey,
       model: openaiModel || 'gpt-4o'
     })

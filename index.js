@@ -7,23 +7,26 @@ import { selectOutputStack } from './src/prompts.js'
 
 (async function main() {
   const argvs = minimist(process.argv.slice(2))
-  const inputImgs = argvs['i']?.split(',') || []
+  const { i: input, temperature } = argvs
 
   const config = await readConfigJSON()
-  const configImages = config?.images ? [].concat(config.images) : []
 
   if (!config.openaiApiKey) {
     console.error('【openaiApiKey missed】: Please configure your API-KEY!')
     return
   }
 
+  const inputImgs = input?.split(',') || []
+  const configImages = config?.images ? [].concat(config.images) : []
   if (!inputImgs.length && !configImages.length) {
     console.error('【image missed】: Please enter the image path or URL to be converted!')
     return
   }
 
   const prompt = await selectOutputStack()
-
   const images = inputImgs.length ? inputImgs : configImages
-  img2Code(config, images, prompt)
+  const openaiParams = Object.assign(config, {
+    temperature: (typeof temperature === 'number' && temperature >=0 && temperature < 1) ? temperature : undefined
+  })
+  img2Code(openaiParams, images, prompt)
 })()

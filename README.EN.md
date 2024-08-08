@@ -45,6 +45,7 @@ aimg2code -i https:/xx.png
 
 **Command line parameter introduction:**
 - `-i`: The image to be converted. The value is a string of the relative path or URL of the image. Supports parsing local and remote images (http/https); supports passing in multiple images, separated by `,`, such as "./img1.png,./img2.png".
+- `--temperature`: Same as the parameter `temperature` passed in when calling the model, you can customize the value in the interval `[0, 1)`. The lower the temperature value, the more stable and predictable the generated content is, and the higher the temperature value, the more creative and diverse the generated content is. Example `--temperature=0.1`, if this parameter is not passed, the default value is `0.95`.
 
 **Configuration file introduction:**
 > *`aimg2code.config.json`* must exist in the current working directory where `aimg2code` is used. `aimg2code` will read the configuration file to complete the task.
@@ -88,3 +89,4 @@ Select the technology stack you want to generate code. After `aimg2code` is succ
 - For the same or the same group of images, you can call `aimg2code` multiple times to select the best or most appropriate result.
 - When multiple images are passed in, the first image is recommended to contain the overall content structure, and the second or multiple images are recommended to be more detailed supplements to the first image, such as partial close-ups.
 - When the generated code is inaccurate for images with a lot of content, the images can be cut according to the content structure and passed in, and only a certain piece of content can be converted each time, which can improve the accuracy.
+- If you only need the accuracy of the generated code, you can set a lower `temperature` value, for example `--temperature=0.1`.
