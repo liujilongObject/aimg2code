@@ -13,6 +13,7 @@
 - 支持生成代码的技术栈
   -  `HTML + CSS`
   -  `HTML + Tailwind`
+  -  `Vue + Tailwind`
 
 ## 安装
 

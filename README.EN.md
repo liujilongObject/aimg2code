@@ -7,6 +7,7 @@
 - Technology stack that supports code generation
   - `HTML + CSS`
   - `HTML + Tailwind`
+  - `Vue + Tailwind`
 
 ## Installation
 
