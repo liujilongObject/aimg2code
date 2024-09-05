@@ -9,12 +9,7 @@ const spinner = ora()
 
 export const img2Code = async (options = {}, imagePathList = [], prompt = '') => {
   try {
-    const imageFiles = []
-    for (const imgPath of imagePathList) {
-      imageFiles.push(
-        await readImageFileToBase64(imgPath)
-      )
-    }
+    const imageFiles = await Promise.all(imagePathList.map(readImageFileToBase64))
 
     const { openaiApiKey, openaiModel, openaiBaseUrl, temperature = 0.95 } = options
     const model = new ChatOpenAI({
