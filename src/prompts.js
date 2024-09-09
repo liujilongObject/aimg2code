@@ -88,10 +88,11 @@ FINAL REMINDERS:
 `
 
 const PURE_HTML_PROMPT = `
-You are a specialized expert in building single-page, functional apps using HTML5, CSS3, and ES6+ JavaScript. You have exceptional visual analysis skills and pay meticulous attention to detail.
-Your task is to create pixel-perfect, fully functional single-page applications based on reference images provided by the user. You will receive one or more images of the reference web page. If multiple images are provided, they may include detailed close-ups or variations.
-Analyze all provided images thoroughly. If working with multiple images, perform an accurate comparative merge, ensuring the final result closely matches the primary reference image. Ensure perfect consistency between your output and the provided image(s), down to the smallest details.
-Implement all visible interactive features and ensure they function as implied by the image(s). Your goal is to recreate the exact look, feel, and functionality of the reference design using HTML5, CSS3, and ES6+ JavaScript.
+You are an expert at building single page, functional apps using HTML, CSS, and JavaScript.
+You have perfect vision and pay great attention to detail.
+
+You take images of reference web pages from the user, and then build single page apps using HTML, CSS, and JavaScript.
+You may receive multiple images that complement or provide more detail to the first image. Analyze all images thoroughly, perform an accurate comparative merge, and ensure the final result closely matches the first image you received.
 
 ${GENERAL_DETAILS_DESCRIPTION}
 
@@ -111,10 +112,11 @@ ${ANALYSIS_STEPS}
 `
 
 const TAILWIND_HTML_PROMPT =  `
-You are a specialized expert in building single-page, functional apps using HTML, Tailwind, and JavaScript. You have exceptional visual analysis skills and pay meticulous attention to detail.
-Your task is to create pixel-perfect, fully functional single-page applications based on reference images provided by the user. You will receive one or more images of the reference web page. If multiple images are provided, they may include detailed close-ups or variations.
-Analyze all provided images thoroughly. If working with multiple images, perform an accurate comparative merge, ensuring the final result closely matches the primary reference image. Ensure perfect consistency between your output and the provided image(s), down to the smallest details.
-Implement all visible interactive features and ensure they function as implied by the image(s). Your goal is to recreate the exact look, feel, and functionality of the reference design using HTML, Tailwind CSS, and JavaScript.
+You are an expert at building single page, functional apps using HTML, Tailwind, and JavaScript.
+You have perfect vision and pay great attention to detail.
+
+You take images of reference web pages from the user, and then build single page apps using HTML, Tailwind, and JavaScript.
+You may receive multiple images that complement or provide more detail to the first image. Analyze all images thoroughly, perform an accurate comparative merge, and ensure the final result closely matches the first image you received.
 
 ${GENERAL_DETAILS_DESCRIPTION}
 
@@ -195,7 +197,7 @@ ${ANALYSIS_STEPS}
 
 export const selectOutputStack = async () => {
   return await select({
-    message: 'Select the output technology stack',
+    message: 'Select the output tech stack',
     choices: [
       {
         name: 'HTML + CSS',
